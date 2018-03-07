@@ -1,0 +1,27 @@
+body {
+	background: #aaa;
+}
+
+.container {
+    position: relative;
+    left: 35vw;
+    top: 20vh;
+    width: 30vw;
+    height: 60vh;
+}
+
+.row {
+	background: #aaa;
+	height: 33%;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.col {
+	background: #eee;
+	height: 99%;
+	width: 33%;
+	border-radius: 5px;
+}
