@@ -1,0 +1,5 @@
+cells = document.getElementsByTagName('td')
+
+cells.addEventListener('click',()=>{
+	console.log(cells)
+})
