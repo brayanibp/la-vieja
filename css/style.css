@@ -35,12 +35,15 @@ td {
     border-radius: 50%;
 }
 
-.active {
-	display: block;
-}
-
-.unabled {
-	display: none;
+.img-x {
+	height: 50%;
+    width: 50%;
+    position: absolute;
+    left: 18%;
+    top: 18%;
+    right: 20%;
+    border: 0.5em solid red;
+    border-radius: 5px;
 }
 
 .message {
@@ -56,18 +59,35 @@ td {
 	font-family: 'century gothic';
 	box-shadow: 10px 10px 20px #555;
 	animation: appear 2s;
+	padding-bottom: 50px;
 }
 
-.button {
-	width: 80px;
-	height: 30px;
-	position: relative;
-	top: 0px;
+.buttonOk {
+	width: 120px;
+	height: 35px;
+	position: absolute;
+	bottom: 15px;
 	left: 320px;
 	border-radius: 5px;
 	border: none;
 	background: #000;
 	color: #fff;
+}
+
+.buttonNotOk {
+	width: 120px;
+	height: 35px;
+	position: absolute;
+	bottom: 15px;
+	left: 190px;
+	border-radius: 5px;
+	border: none;
+	background: #aaa;
+	color: #222;
+}
+
+.text {
+	font-size: 1,5em;
 }
 
 @keyframes appear {
