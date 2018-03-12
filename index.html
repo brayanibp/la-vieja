@@ -23,219 +23,218 @@
 			<td id="9"></td>
 		</tr>
 	</table>
-	<script type="text/javascript" src="js/scripts.js">
-		// const moves = 9;
-		// let uPositions = [];
-		// let cPositions = [];
-		// const table = document.getElementById('table');
-		// table.addEventListener('click',detect)
+	<script type="text/javascript" href="js/scripts.js">
+		const moves = 9;
+		let uPositions = [];
+		let cPositions = [];
+		const table = document.getElementById('table');
+		table.addEventListener('click',detect)
 
-		// function detect(ev) {
+		function detect(ev) {
 			
-		// 	if (ev.target.id !="") {
-		// 		let actualTarget = ev.target
-		// 		if (actualTarget.className != 'full') {
-		// 			newDiv = document.createElement('div')
-		// 			newDiv.classList.add('img-c')
-		// 			actualTarget.appendChild(newDiv)	
-		// 			actualTarget.className = "full"
-		// 			uPositions.push(actualTarget.id)
-		// 			tableEvaluation(uPositions,false)
-		// 		} else {
-		// 			message('mark')
-		// 		}
-		// 	} else {
-		// 		message('mark')
-		// 	}
-		// 	myTurn();
-		// }
+			if (ev.target.id !="") {
+				let actualTarget = ev.target
+				if (actualTarget.className != 'full') {
+					newDiv = document.createElement('div')
+					newDiv.classList.add('img-c')
+					actualTarget.appendChild(newDiv)	
+					actualTarget.className = "full"
+					uPositions.push(actualTarget.id)
+					tableEvaluation(uPositions,false)
+				} else {
+					message('mark')
+				}
+			} else {
+				message('mark')
+			}
+			myTurn();
+		}
 
-		// function myTurn() {
-		// 	let consoleTurn = consoleMove()
-		// 	if (consoleTurn) {
-		// 		newDiv = document.createElement('div')
-		// 		newDiv.classList.add('img-x')
-		// 		consoleTurn.appendChild(newDiv)	
-		// 		consoleTurn.className = "full"
-		// 		cPositions.push(consoleTurn.id)
-		// 		tableEvaluation(false,cPositions)
-		// 	} else {
-		// 		console.log(`Hubo un error`)
-		// 	}
-		// }
+		function myTurn() {
+			let consoleTurn = consoleMove()
+			if (consoleTurn) {
+				newDiv = document.createElement('div')
+				newDiv.classList.add('img-x')
+				consoleTurn.appendChild(newDiv)	
+				consoleTurn.className = "full"
+				cPositions.push(consoleTurn.id)
+				tableEvaluation(false,cPositions)
+			} else {
+				console.log(`Hubo un error`)
+			}
+		}
 
-		// function consoleMove() {
-		// 	let movement = aleatoryMoves()
-		// 	let preSelectedBlock = document.getElementById(`${movement}`)
+		function consoleMove() {
+			let movement = aleatoryMoves()
+			let preSelectedBlock = document.getElementById(`${movement}`)
 
-		// 	if (preSelectedBlock.className == "full" || preSelectedBlock === undefined) {
-		// 		return newSelectedBlock = consoleMove()
-		// 	} else {
-		// 		return preSelectedBlock
-		// 	}
-		// }
+			if (preSelectedBlock.className == "full" || preSelectedBlock === undefined) {
+				return newSelectedBlock = consoleMove()
+			} else {
+				return preSelectedBlock
+			}
+		}
 
-		// function aleatoryMoves() {
-		// 	const min = 1
-		// 	return Math.round(Math.random() * (moves - min) + min)
-		// }
+		function aleatoryMoves() {
+			const min = 1
+			return Math.round(Math.random() * (moves - min) + min)
+		}
 
-		// function tableEvaluation(uMoves,cMoves) {
-		// 	(uMoves) ? xMoves = uMoves : xMoves = cMoves;
-		// 	if (xMoves.length < 5 && xMoves==uMoves) {
-		// 		let conca = ''
-		// 		orderM = xMoves.sort()
-		// 		orderM.map((nmove)=>{
-		// 			conca += nmove
-		// 		})
+		function tableEvaluation(uMoves,cMoves) {
+			(uMoves) ? xMoves = uMoves : xMoves = cMoves;
+			if (xMoves.length < 5 && xMoves==uMoves) {
+				let conca = ''
+				orderM = xMoves.sort()
+				orderM.map((nmove)=>{
+					conca += nmove
+				})
 				
-		// 		switch (conca != "") {
-		// 			case conca.indexOf('123') != -1:
-		// 				messageSend('win')
-		// 				break;
-		// 			case conca.indexOf('456') != -1:
-		// 				messageSend('win')
-		// 				break;
-		// 			case conca.indexOf('789') != -1:
-		// 				messageSend('win')
-		// 				break;
-		// 			case conca.indexOf('159') != -1:
-		// 				messageSend('win')
-		// 				break;
-		// 			case conca.indexOf('357') != -1:
-		// 				messageSend('win')
-		// 				break;
-		// 		}
-		// 	} else if(xMoves.length < 4 && xMoves==cMoves) {
-		// 		let conca = ''
-		// 		orderM = xMoves.sort()
-		// 		orderM.map((nmove)=>{
-		// 			conca += nmove
-		// 		})
+				switch (conca != "") {
+					case conca.indexOf('123') != -1:
+						messageSend('win')
+						break;
+					case conca.indexOf('456') != -1:
+						messageSend('win')
+						break;
+					case conca.indexOf('789') != -1:
+						messageSend('win')
+						break;
+					case conca.indexOf('159') != -1:
+						messageSend('win')
+						break;
+					case conca.indexOf('357') != -1:
+						messageSend('win')
+						break;
+				}
+			} else if(xMoves.length < 4 && xMoves==cMoves) {
+				let conca = ''
+				orderM = xMoves.sort()
+				orderM.map((nmove)=>{
+					conca += nmove
+				})
 				
-		// 		switch (conca != "") {
-		// 			case conca.indexOf('123') != -1:
-		// 				messageSend('loss')
-		// 				break;
-		// 			case conca.indexOf('456') != -1:
-		// 				messageSend('loss')
-		// 				break;
-		// 			case conca.indexOf('789') != -1:
-		// 				messageSend('loss')
-		// 				break;
-		// 			case conca.indexOf('159') != -1:
-		// 				messageSend('loss')
-		// 				break;
-		// 			case conca.indexOf('357') != -1:
-		// 				messageSend('loss')
-		// 				break;
-		// 		}
-		// 	} else {
-		// 		messageSend('equal')
-		// 	}
-		// }
+				switch (conca != "") {
+					case conca.indexOf('123') != -1:
+						messageSend('loss')
+						break;
+					case conca.indexOf('456') != -1:
+						messageSend('loss')
+						break;
+					case conca.indexOf('789') != -1:
+						messageSend('loss')
+						break;
+					case conca.indexOf('159') != -1:
+						messageSend('loss')
+						break;
+					case conca.indexOf('357') != -1:
+						messageSend('loss')
+						break;
+				}
+			} else {
+				messageSend('equal')
+			}
+		}
 
-		// function messageSend(m) {
-		// 	message(m,['¡Jugar de Nuevo!','No Gracias'],()=>{
-		// 		setTimeout(()=>{
-		// 			const xMessageBox = document.getElementById('message')
-		// 			let celd
-		// 			for (let i = 0; i < moves; i++) {
-		// 				celd = document.getElementById(`${i+1}`)
-		// 				celd.innerHTML = ''
-		// 				celd.classList.remove('full')
-		// 			}
-		// 			uPositions = []
-		// 			cPositions = []
-		// 			doc.removeChild(xMessageBox)
-		// 			table.addEventListener('click',detect)
-		// 		},0)
-		// 	},()=>{
-		// 		setTimeout(()=>{
-		// 			const xMessageBox = document.getElementById('message')
-		// 			table.removeEventListener('click',detect)
-		// 			doc.removeChild(xMessageBox)
-		// 		})
-		// 	})
-		// 	table.removeEventListener('click',detect)
-		// }
+		function messageSend(m) {
+			message(m,['¡Jugar de Nuevo!','No Gracias'],()=>{
+				setTimeout(()=>{
+					const xMessageBox = document.getElementById('message')
+					let celd
+					for (let i = 0; i < moves; i++) {
+						celd = document.getElementById(`${i+1}`)
+						celd.innerHTML = ''
+						celd.classList.remove('full')
+					}
+					uPositions = []
+					cPositions = []
+					doc.removeChild(xMessageBox)
+					table.addEventListener('click',detect)
+				},0)
+			},()=>{
+				setTimeout(()=>{
+					const xMessageBox = document.getElementById('message')
+					table.removeEventListener('click',detect)
+					doc.removeChild(xMessageBox)
+				})
+			})
+			table.removeEventListener('click',detect)
+		}
 
-		// function message(m,buttons = false,fun = false,funC = false) {
-		// 	setTimeout(()=>{
-		// 			switch (m !='') {
+		function message(m,buttons = false,fun = false,funC = false) {
+			setTimeout(()=>{
+					switch (m !='') {
 
-		// 			case m == 'win':
-		// 				box('¡Enhorabuena Ganaste!','¿Quieres Jugar de Nuevo?',buttons,fun,funC)
-		// 				break;
-		// 			case m == 'loss':
-		// 				box('Haz Perdido :(','¿Quieres Jugar de Nuevo?',buttons,fun,funC)
-		// 				break;
-		// 			case m == 'equal':
-		// 				box('Fue un Empate','¿Quieres Jugar de Nuevo?',buttons,fun,funC)
-		// 				break;
-		// 			case m == 'mark':
-		// 				box('Esa posicion ya fue marcada',' ',buttons,fun,funC)
-		// 				break;
-		// 		}
-		// 	},100)
-		// }
+					case m == 'win':
+						box('¡Enhorabuena Ganaste!','¿Quieres Jugar de Nuevo?',buttons,fun,funC)
+						break;
+					case m == 'loss':
+						box('Haz Perdido :(','¿Quieres Jugar de Nuevo?',buttons,fun,funC)
+						break;
+					case m == 'equal':
+						box('Fue un Empate','¿Quieres Jugar de Nuevo?',buttons,fun,funC)
+						break;
+					case m == 'mark':
+						box('Esa posicion ya fue marcada',' ',buttons,fun,funC)
+						break;
+				}
+			},100)
+		}
 
-		// function box(m,m2,buttons = false,bFuncts = false,cancelFuncts = false) {
-		// 	const messageBox = document.createElement('div')
-		// 	messageBox.classList.add('message')
-		// 	messageBox.id = 'message'
-		// 	const title = document.createElement('p')
-		// 	const text = document.createElement('p')
-		// 	title.classList.add('title')
-		// 	text.classList.add('text')
-		// 	title.innerHTML = m
-		// 	text.innerHTML = m2
-		// 	messageBox.appendChild(title)
-		// 	messageBox.appendChild(text)
-		// 	if (buttons) {
-		// 		let uButtonOk = document.createElement('button')
-		// 		uButtonOk.classList.add('buttonOk')
-		// 		uButtonOk.innerHTML = buttons[0]
-		// 		messageBox.appendChild(uButtonOk)
-		// 		let uButtonNotOK = document.createElement('button')
-		// 		uButtonNotOK.classList.add('buttonNotOk')
-		// 		uButtonNotOK.innerHTML = buttons[1]
-		// 		messageBox.appendChild(uButtonNotOK)
-		// 		if (bFuncts) {
-		// 			uButtonOk.addEventListener('click',bFuncts)
-		// 		} else {
-		// 			uButtonOk.addEventListener('click',()=>{
-		// 				setTimeout(()=>{
-		// 					doc.removeChild(messageBox)
-		// 				},0)
-		// 			})
-		// 		}
+		function box(m,m2,buttons = false,bFuncts = false,cancelFuncts = false) {
+			const messageBox = document.createElement('div')
+			messageBox.classList.add('message')
+			messageBox.id = 'message'
+			const title = document.createElement('p')
+			const text = document.createElement('p')
+			title.classList.add('title')
+			text.classList.add('text')
+			title.innerHTML = m
+			text.innerHTML = m2
+			messageBox.appendChild(title)
+			messageBox.appendChild(text)
+			if (buttons) {
+				let uButtonOk = document.createElement('button')
+				uButtonOk.classList.add('buttonOk')
+				uButtonOk.innerHTML = buttons[0]
+				messageBox.appendChild(uButtonOk)
+				let uButtonNotOK = document.createElement('button')
+				uButtonNotOK.classList.add('buttonNotOk')
+				uButtonNotOK.innerHTML = buttons[1]
+				messageBox.appendChild(uButtonNotOK)
+				if (bFuncts) {
+					uButtonOk.addEventListener('click',bFuncts)
+				} else {
+					uButtonOk.addEventListener('click',()=>{
+						setTimeout(()=>{
+							doc.removeChild(messageBox)
+						},0)
+					})
+				}
 
-		// 		if(cancelFuncts){
-		// 			uButtonNotOK.addEventListener('click',cancelFuncts)
-		// 		} else {
-		// 			uButtonNotOK.addEventListener('click',()=>{
-		// 				setTimeout(()=>{
-		// 					doc.removeChild(messageBox)
-		// 				})
-		// 			})
-		// 		}
+				if(cancelFuncts){
+					uButtonNotOK.addEventListener('click',cancelFuncts)
+				} else {
+					uButtonNotOK.addEventListener('click',()=>{
+						setTimeout(()=>{
+							doc.removeChild(messageBox)
+						})
+					})
+				}
 
-		// 	} else {
-		// 		let dButton = document.createElement('button')
-		// 		dButton.classList.add('buttonOk')
-		// 		dButton.innerHTML = 'Ok'
-		// 		dButton.addEventListener('click',()=>{
-		// 			setTimeout(()=>{
-		// 				doc.removeChild(messageBox)
-		// 			},0)
-		// 		})
-		// 		messageBox.appendChild(dButton)
-		// 	}
-		// 	doc = document.getElementById('myBody')
-		// 	doc.appendChild(messageBox)
-		// }
-
+			} else {
+				let dButton = document.createElement('button')
+				dButton.classList.add('buttonOk')
+				dButton.innerHTML = 'Ok'
+				dButton.addEventListener('click',()=>{
+					setTimeout(()=>{
+						doc.removeChild(messageBox)
+					},0)
+				})
+				messageBox.appendChild(dButton)
+			}
+			doc = document.getElementById('myBody')
+			doc.appendChild(messageBox)
+		}
 	</script>
 </body>
 </html>
