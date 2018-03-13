@@ -27,6 +27,7 @@
 		const moves = 9;
 		let uPositions = [];
 		let cPositions = [];
+		//let consoleTurn
 		const table = document.getElementById('table');
 		table.addEventListener('click',detect)
 
@@ -48,7 +49,7 @@
 			} else {
 				return message('mark')
 			}
-			let consoleTurn = setTimeout(()=>{
+			var consoleTurn = setTimeout(()=>{
 				myTurn();
 			},250)
 		}
@@ -103,7 +104,12 @@
 				})
 				casesWinOrLoss(conca,'loss')
 			} else {
-				messageSend('equal')
+				PlayerWin = casesWinOrLoss(conca,'win')
+				if (PlayerWin) {
+					clearTimeout(consoleTurn)
+				} else {
+					messageSend('equal')
+				}
 			}
 		}
 
@@ -111,48 +117,71 @@
 			switch (conca != "") {
 				case conca.indexOf('123') != -1:
 					messageSend(message)
+					return true
 					break;
 				case conca.indexOf('456') != -1:
 					messageSend(message)
+					return true
 					break;
 				case conca.indexOf('789') != -1:
 					messageSend(message)
+					return true
 					break;
 				case conca.indexOf('159') != -1:
 					messageSend(message)
+					return true
 					break;
 				case conca.indexOf('357') != -1:
 					messageSend(message)
+					return true
 					break;
 				case conca.indexOf('147') != -1:
 					messageSend(message)
+					return true
 					break;
 				case conca.indexOf('258') != -1:
 					messageSend(message)
+					return true
 					break;
 				case conca.indexOf('369') != -1:
 					messageSend(message)
+					return true
 					break;
 				case conca.indexOf('1259') != -1:
 					messageSend(message)
+					return true
 					break;
 				case conca.indexOf('1247') != -1:
 					messageSend(message)
+					return true
+					break;
+				case conca.indexOf('1347') != -1:
+					messageSend(message)
+					return true
+					break;
+				case conca.indexOf('1569') != -1:
+					messageSend(message)
+					return true
 					break;
 				case conca.indexOf('3569') != -1:
 					messageSend(message)
+					return true
 					break;
 				case conca.indexOf('1359') != -1:
 					messageSend(message)
+					return true
 					break;
 				case conca.indexOf('1459') != -1:
 					messageSend(message)
+					return true
 					break;
 				case conca.indexOf('2458') != -1:
 					messageSend(message)
+					return true
 					break;
 				case conca.indexOf('12459') != -1:
 					messageSend(message)
+					return true
 					break;
 			}
 		}

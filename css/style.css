@@ -33,6 +33,7 @@ td {
     right: 20%;
     border: 0.5em solid blue;
     border-radius: 50%;
+    animation: mark-appear 0.5s;
 }
 
 .img-x {
@@ -45,6 +46,7 @@ td {
     border: 0.5em solid red;
     border-radius: 5px;
     border-left: 25%;
+    animation: mark-appear 0.5s;
 }
 
 .message {
@@ -101,5 +103,14 @@ td {
 		top: 10vh;
 		background: #EEEEEEee;
 		color: #000000FF;
+	}
+}
+
+@keyframes mark-appear {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
 	}
 }
