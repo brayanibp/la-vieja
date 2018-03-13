@@ -32,7 +32,7 @@
 
 		function detect(ev) {
 			
-			if (ev.target.id !="") {
+			if (ev.target.id !=="") {
 				let actualTarget = ev.target
 				if (actualTarget.className != 'full') {
 					newDiv = document.createElement('div')
@@ -42,12 +42,15 @@
 					uPositions.push(actualTarget.id)
 					tableEvaluation(uPositions,false)
 				} else {
-					message('mark')
+
+					return message('mark')
 				}
 			} else {
-				message('mark')
+				return message('mark')
 			}
-			myTurn();
+			let consoleTurn = setTimeout(()=>{
+				myTurn();
+			},250)
 		}
 
 		function myTurn() {
@@ -88,50 +91,69 @@
 				orderM.map((nmove)=>{
 					conca += nmove
 				})
-				
-				switch (conca != "") {
-					case conca.indexOf('123') != -1:
-						messageSend('win')
-						break;
-					case conca.indexOf('456') != -1:
-						messageSend('win')
-						break;
-					case conca.indexOf('789') != -1:
-						messageSend('win')
-						break;
-					case conca.indexOf('159') != -1:
-						messageSend('win')
-						break;
-					case conca.indexOf('357') != -1:
-						messageSend('win')
-						break;
+				PlayerWin = casesWinOrLoss(conca,'win')
+				if (PlayerWin) {
+					clearTimeout(consoleTurn)
 				}
-			} else if(xMoves.length < 4 && xMoves==cMoves) {
+			} else if(xMoves.length < 5 && xMoves==cMoves) {
 				let conca = ''
 				orderM = xMoves.sort()
 				orderM.map((nmove)=>{
 					conca += nmove
 				})
-				
-				switch (conca != "") {
-					case conca.indexOf('123') != -1:
-						messageSend('loss')
-						break;
-					case conca.indexOf('456') != -1:
-						messageSend('loss')
-						break;
-					case conca.indexOf('789') != -1:
-						messageSend('loss')
-						break;
-					case conca.indexOf('159') != -1:
-						messageSend('loss')
-						break;
-					case conca.indexOf('357') != -1:
-						messageSend('loss')
-						break;
-				}
+				casesWinOrLoss(conca,'loss')
 			} else {
 				messageSend('equal')
+			}
+		}
+
+		function casesWinOrLoss(conca,message) {
+			switch (conca != "") {
+				case conca.indexOf('123') != -1:
+					messageSend(message)
+					break;
+				case conca.indexOf('456') != -1:
+					messageSend(message)
+					break;
+				case conca.indexOf('789') != -1:
+					messageSend(message)
+					break;
+				case conca.indexOf('159') != -1:
+					messageSend(message)
+					break;
+				case conca.indexOf('357') != -1:
+					messageSend(message)
+					break;
+				case conca.indexOf('147') != -1:
+					messageSend(message)
+					break;
+				case conca.indexOf('258') != -1:
+					messageSend(message)
+					break;
+				case conca.indexOf('369') != -1:
+					messageSend(message)
+					break;
+				case conca.indexOf('1259') != -1:
+					messageSend(message)
+					break;
+				case conca.indexOf('1247') != -1:
+					messageSend(message)
+					break;
+				case conca.indexOf('3569') != -1:
+					messageSend(message)
+					break;
+				case conca.indexOf('1359') != -1:
+					messageSend(message)
+					break;
+				case conca.indexOf('1459') != -1:
+					messageSend(message)
+					break;
+				case conca.indexOf('2458') != -1:
+					messageSend(message)
+					break;
+				case conca.indexOf('12459') != -1:
+					messageSend(message)
+					break;
 			}
 		}
 

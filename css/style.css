@@ -44,6 +44,7 @@ td {
     right: 20%;
     border: 0.5em solid red;
     border-radius: 5px;
+    border-left: 25%;
 }
 
 .message {
