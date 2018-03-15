@@ -26,18 +26,17 @@
 			</tr>
 		</tbody>
 	</table>
-	<div class="figure-select">
-		<div class="img-c sel">
-			<input id="c" type="radio" name="figure" value="img-c">
-		</div>
-		<div class="img-x sel">
-			<input id="x" type="radio" name="figure" value="img-x">
-		</div>
-		<div class="mark-select">
-			<div class="img-x sel">
-			<input id="x" type="radio" name="figure" value="img-x">
-		</div>
-		</div>
+	<div id="figures" class="figure-select">
+		<label class="mark-select active-sel">
+			<label for="c" class="img-c sel">
+				<input id="c" type="radio" name="figure" value="img-c">
+			</label>
+		</label>
+		<label class="mark-select">
+			<label for="x" class="img-x sel">
+				<input id="x" type="radio" name="figure" value="img-x">
+			</label>
+		</label>
 	</div>
 	<script type="text/javascript" href="js/scripts.js">
 		const moves = 9;
@@ -47,7 +46,38 @@
 
 		//const table = document.getElementById('table');
 		const table = document.getElementById('table');
+		const $figureSelect = document.getElementById('figures')
+		let figureSelected = 'img-c'
+		let figureConsole = 'img-x'
+		$figureSelect.addEventListener('click',selection)
 		table.addEventListener('click',detect)
+		
+		function selection(ev) {
+			let actualTarget = ev.target
+			if (actualTarget.id != '') {
+			let i = 1
+			do {
+				if (document.getElementById(`${i}`).innerHTML != '') {
+					full = true
+					i +=9
+				} else {
+					full = false
+					i++
+				}
+			} while (i < 9)
+
+			if (full) {
+				box(`El Juego ya Empezo :/`,``)
+			} else {
+				figureSelected = actualTarget.value
+				if (figureSelected == 'img-c') {
+					figureConsole = 'img-x'
+				} else {
+					figureConsole = 'img-c'
+				}
+			}
+			}
+		}
 
 		function detect(ev) {
 			
@@ -55,7 +85,7 @@
 				let actualTarget = ev.target
 				if (actualTarget.className != 'full') {
 					newDiv = document.createElement('div')
-					newDiv.classList.add('img-c')
+					newDiv.classList.add(figureSelected)
 					actualTarget.appendChild(newDiv)	
 					actualTarget.className = "full"
 					uPositions.push(actualTarget.id)
@@ -76,7 +106,7 @@
 			let consoleTurn = consoleMove()
 			if (consoleTurn) {
 				newDiv = document.createElement('div')
-				newDiv.classList.add('img-x')
+				newDiv.classList.add(figureConsole)
 				consoleTurn.appendChild(newDiv)	
 				consoleTurn.className = "full"
 				cPositions.push(consoleTurn.id)
