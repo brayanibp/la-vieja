@@ -3,9 +3,8 @@ body {
 }
 
 table {
-	margin: auto;
+	margin: 50px auto;
     position: relative;
-    top: 10vh;
     width: 500px;
     height: 500px;
 }
@@ -15,12 +14,10 @@ tr {
 }
 
 td {
-	border: 1px solid white;
 	background: #eee;
 	border-radius: 5px;
 	object-position: center;
 	width: 33.3%;
-	top: 33.3%;
 	position: relative;
 }
 
@@ -91,6 +88,23 @@ td {
 
 .text {
 	font-size: 1,5em;
+}
+
+.figure-select {
+	background: #EEE;
+	height: 50px;
+	width: 300px;
+	display: block;
+	padding: 0px 12px 8px 12px;
+	margin: auto;
+}
+
+.sel {
+	display: inline-block;
+	position: relative;
+	margin: 0 16.5%;
+	left: 0;
+	width: 10%;
 }
 
 @keyframes appear {
