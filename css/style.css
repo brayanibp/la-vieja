@@ -197,11 +197,104 @@ td {
 	    width: 400px;
 	    height: 400px;
 	}
+	@keyframes line_mark {
+		0% {
+			width: 0px;
+		}
+		100% {
+			width: 400px;
+		}
+	}
+	@keyframes line_mark2 {
+		0% {
+			top: 195px;
+			left: -60px;
+			width: 0px;
+		}
+		100% {
+			top: 195px;
+			left: -60px;
+			width: 525px;
+		}
+	}
+	@keyframes line_mark3 {
+		0% {
+			height: 0px;
+		}
+		100% {
+			height: 400px;
+		}
+	}
+	.myMark {
+		width: 400px;
+	}
 }
 
 @media screen and (max-width: 450px) {
 	table {
 	    width: 300px;
 	    height: 300px;
+	}
+	@keyframes line_mark {
+		0% {
+			width: 0px;
+		}
+		100% {
+			width: 300px;
+		}
+	}
+	@keyframes line_mark2 {
+		0% {
+			top: 145px;
+			left: -50px;
+			width: 0px;
+		}
+		100% {
+			top: 145px;
+			left: -50px;
+			width: 400px;
+		}
+	}
+	@keyframes line_mark3 {
+		0% {
+			height: 0px;
+		}
+		100% {
+			height: 300px;
+		}
+	}
+	.myMark {
+		width: 300px;
+	}
+	.message {
+		width: 350px;
+		height: 150px;
+    	left: 0.7em;
+	    font-size: 1em;
+	    padding: 10px 35px;
+	    animation: appear 2s;
+	}
+	.buttonOk {
+		width: 120px;
+		height: 35px;
+		position: absolute;
+		bottom: 15px;
+		left: 280px;
+		border-radius: 5px;
+		border: none;
+		background: #000;
+		color: #fff;
+	}
+
+	.buttonNotOk {
+		width: 120px;
+		height: 35px;
+		position: absolute;
+		bottom: 15px;
+		left: 150px;
+		border-radius: 5px;
+		border: none;
+		background: #aaa;
+		color: #222;
 	}
 }
