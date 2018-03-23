@@ -417,6 +417,11 @@
                     messageSend(message)
                     return true
                     break;
+                case conca.indexOf('14589') != -1:
+                    mark(4)
+                    messageSend(message)
+                    return true
+                    break;
             }
         }
 
