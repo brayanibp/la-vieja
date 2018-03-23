@@ -228,6 +228,17 @@ td {
 	.myMark {
 		width: 400px;
 	}
+	.message {
+		width: 380px;
+    	left: 0.6em;
+	}
+	.buttonOk {
+		left: 300px;
+	}
+	.buttonNotOk {
+		left: 170px;
+	}
+
 }
 
 @media screen and (max-width: 450px) {
