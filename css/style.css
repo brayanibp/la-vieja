@@ -267,7 +267,7 @@ td {
 		width: 300px;
 	}
 	.message {
-		width: 350px;
+		width: 220px;
 		height: 150px;
     	left: 0.7em;
 	    font-size: 1em;
@@ -279,7 +279,7 @@ td {
 		height: 35px;
 		position: absolute;
 		bottom: 15px;
-		left: 280px;
+		left: 155px;
 		border-radius: 5px;
 		border: none;
 		background: #000;
@@ -291,7 +291,7 @@ td {
 		height: 35px;
 		position: absolute;
 		bottom: 15px;
-		left: 150px;
+		left: 25px;
 		border-radius: 5px;
 		border: none;
 		background: #aaa;
