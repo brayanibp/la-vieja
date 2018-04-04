@@ -1,6 +1,9 @@
 
         let resolPhones = window.matchMedia('(max-width: 450px)')
         let resolTables = window.matchMedia('(max-width: 800px)')
+        function pleaseRecharge() {
+            box('Recarga La Pagina Por Favor','');
+        }
         function mediaQuerie(markSelect,$mark) {
             if (resolPhones.matches) {
                 switch (markSelect != '') {
@@ -74,7 +77,8 @@
         }
         resolTables.addListener(mediaQuerie)
         resolPhones.addListener(mediaQuerie)
-
+        let winPlayes = 0;
+        let lossedPlayes = 0;
         const moves = 9;
         let uPositions = [];
         let cPositions = [];
@@ -83,11 +87,12 @@
         const $figureSelect = document.getElementById('figures')
         let figureSelected = 'img-c'
         let figureConsole = 'img-x'
-        $figureSelect.addEventListener('click',selection)
-        $table.addEventListener('click',detect)
-        $figureSelect.addEventListener('tab',selection)
-        $table.addEventListener('tab',detect)
         
+        $table.addEventListener('click',detect)
+        //$table.addEventListener('tab',detect)
+        $figureSelect.addEventListener('click',selection)
+        //$figureSelect.addEventListener('tab',selection)
+
         function selection(ev) {
             let actualTarget = ev.target
             if (actualTarget.id != '') {
@@ -447,6 +452,10 @@
                     const xMessageBox = document.getElementById('message')
                     $table.removeEventListener('click',detect)
                     $table.removeEventListener('tab',detect)
+                    $table.addEventListener('click',pleaseRecharge)
+                    box(`Juego Terminado`,`Partidas ganadas : ${winPlayes} Partidas Perdidas: ${lossedPlayes}`,['RECARGAR PAGINA',''],()=>{
+                        setTimeout(()=>{location.reload();},0)
+                    })
                     doc.removeChild(xMessageBox)
                 })
             })
@@ -459,9 +468,11 @@
 
                     case m == 'win':
                         box('¡Enhorabuena Ganaste!','¿Quieres Jugar de Nuevo?',buttons,fun,funC)
+                        winPlayes++
                         break;
                     case m == 'loss':
                         box('Haz Perdido :(','¿Quieres Jugar de Nuevo?',buttons,fun,funC)
+                        lossedPlayes++
                         break;
                     case m == 'equal':
                         box('Fue un Empate','¿Quieres Jugar de Nuevo?',buttons,fun,funC)
